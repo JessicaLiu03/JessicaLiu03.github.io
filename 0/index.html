@@ -31,7 +31,7 @@
         }
 
         .wrap {
-            max-width: 760px;
+            max-width: 920px;
             margin: 0 auto;
         }
 
@@ -50,7 +50,7 @@
         .back:hover { color: var(--accent); }
 
         header {
-            margin: 1.75rem 0 2.5rem;
+            margin: 1.75rem 0 3rem;
         }
 
         .eyebrow {
@@ -76,8 +76,53 @@
             max-width: 52ch;
         }
 
+        section {
+            margin-top: 3.5rem;
+        }
+
+        section h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        section h2 .part-label {
+            display: block;
+            margin-bottom: 0.35rem;
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        section .section-note {
+            margin: 0.75rem 0 0;
+            color: var(--muted);
+            max-width: 60ch;
+        }
+
+        .grid {
+            margin-top: 1.5rem;
+            display: grid;
+            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .grid.cols-2 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid.single {
+            grid-template-columns: minmax(0, 520px);
+            justify-content: center;
+        }
+
         figure {
             margin: 0;
+            display: flex;
+            flex-direction: column;
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 18px;
@@ -88,9 +133,14 @@
         figure img {
             display: block;
             width: 100%;
-            height: auto;
+            height: 320px;
+            object-fit: cover;
             border-radius: 10px;
+            background: var(--border);
         }
+
+        .grid.cols-2 figure img { height: 380px; }
+        .grid.single figure img { height: auto; }
 
         figcaption {
             margin-top: 0.85rem;
@@ -100,7 +150,7 @@
         }
 
         footer {
-            margin-top: 3rem;
+            margin-top: 4rem;
             padding-top: 1.5rem;
             border-top: 1px solid var(--border);
             font-size: 0.85rem;
@@ -133,13 +183,53 @@
         <header>
             <p class="eyebrow">CS180 &middot; Project 0</p>
             <h1>Project 0</h1>
-            <p class="lede">My first project in CS280 - putting together a simple gif that demonstrates the dolly zoom effect.</p>
+            <p class="lede">My first project in CS180 &mdash; exploring how camera distance and focal length shape a photograph.</p>
         </header>
 
-        <figure>
-            <img src="./media/ezgif.com-gif-maker.gif" alt="Animated result for Project 0">
-            <figcaption>Animated GIF output</figcaption>
-        </figure>
+        <section>
+            <h2><span class="part-label">Part 1</span>Selfie: The Wrong Way vs. The Right Way</h2>
+            <p class="section-note">Comparing selfies shot at different distances to see how a close camera exaggerates facial features.</p>
+            <div class="grid">
+                <figure>
+                    <img src="./media/selfie1.jpg" alt="Selfie taken at close range">
+                    <figcaption>Selfie 1</figcaption>
+                </figure>
+                <figure>
+                    <img src="./media/selfie2.jpg" alt="Selfie taken at medium range">
+                    <figcaption>Selfie 2</figcaption>
+                </figure>
+                <figure>
+                    <img src="./media/selfie3.jpg" alt="Selfie taken from further away">
+                    <figcaption>Selfie 3</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="part-label">Part 2</span>Architectural Perspective Compression</h2>
+            <p class="section-note">Photographing the same structure from near and far to show how distance flattens perspective.</p>
+            <div class="grid cols-2">
+                <figure>
+                    <img src="./media/building1.jpg" alt="Building photographed up close">
+                    <figcaption>Building 1</figcaption>
+                </figure>
+                <figure>
+                    <img src="./media/building2.jpg" alt="Building photographed from a distance">
+                    <figcaption>Building 2</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="part-label">Part 3</span>The Dolly Zoom</h2>
+            <p class="section-note">A simple GIF that demonstrates the dolly zoom effect &mdash; moving the camera while zooming to keep the subject a constant size.</p>
+            <div class="grid single">
+                <figure>
+                    <img src="./media/ezgif.com-gif-maker.gif" alt="Animated dolly zoom result for Project 0">
+                    <figcaption>Animated GIF output</figcaption>
+                </figure>
+            </div>
+        </section>
 
         <footer>
             Jessica Liu &middot; UC Berkeley
